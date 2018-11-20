@@ -1,5 +1,5 @@
-//var url = 'http://10.75.2.5:8080';
-var url = 'http://192.168.137.150:8080';
+var url = 'http://10.75.2.5:8080';
+//var url = 'http://192.168.137.150:8080';
 var dataArray = getCache();
 // 手机验证码
 var phoneCode = '';
@@ -19,6 +19,7 @@ $(function () {
             dataType : "json",
             data : {certNo:certNo ,password:password},
             success:function (data) {
+                console.log(data)
                 var userId = data.user_id;
                 var userData = userId+','+certNo;
                 if(data.success == false){
@@ -75,7 +76,7 @@ $(function () {
             dataType:"json",
             data: data,
             success:function (data) {
-                console.log(data)
+                //console.log(data)
                 if(data.success == false){
                     mui.alert('手机号已注册，请重新输入！');
                     $("#phone").val();
@@ -353,7 +354,18 @@ function getCode() {
         getCode();
     },1000);
 }
-
-//
+// 验证身份证
+function isCardNo(card) {
+    var pattern = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+    return pattern.test(card);
+}
+// 判断身份证性别
+function cardSex(UUserCard) {
+    if (parseInt(UUserCard.substr(16, 1)) % 2 == 1) {
+        $("#sex").val("男");
+    } else {
+        $("#sex").val("女");
+    }
+}
 
 
