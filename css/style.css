@@ -1,0 +1,726 @@
+﻿body{margin: 0; padding: 0;font-family:"Microsoft YaHei"; font-size:12px; background-color: #ffffff}
+dl,dt,dd{display:block;margin:0}
+img{border:0}
+ul,LI{margin:0;padding:0;border-width:0;list-style-type:none}
+em, i{font-style:normal;}
+a {outline: medium none;text-decoration: none;  }
+a:hover {text-decoration: none;/* border:none;*/}
+textarea{resize:none}
+*:focus {outline: none;}
+article,section,header,footer,aside,nav,iframe{display:block}
+
+
+/*申请进度*/
+.formBac{
+    background: #f0f0f0 !important;
+}
+.formBac:after,.formBac:focus{
+    background: none !important;
+}
+.applyBox{
+    width: 100%;
+    display: inline-block;
+    background: #f0f0f0;
+    height: 105px;
+}
+.applyProgress{
+    width: 80%;
+    display: inline-block;
+    margin-left: 10%;
+    position: relative;
+    margin-top: 12px;
+}
+.applyProgressLeft{
+    margin-right: 26px;
+}
+.applyProgressRight{
+    width: 26px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.progressOne,.progressTow{
+    width: 50%;
+    display: inline-block;
+    float: left;
+    position: relative;
+}
+.transverse{
+    height: 2px;
+    width: 100%;
+    background-color: #4cb223;
+    margin-top: 10px;
+}
+.transverseGray{
+    background-color: #d5d5d5;
+}
+.progressSpot{
+    width: 28px;
+    height: 25px;
+    position: absolute;
+    left: 0;
+    top: -2px;
+    background: url("../images/dian1.png") no-repeat 0 0;
+    background-position: 0 0;
+}
+.progressSpotGreen{
+    width: 28px;
+    height: 25px;
+    background-position: 0 0;
+}
+.progressSpotGray{
+    width: 28px;
+    height: 25px;
+    background-position: 0 -24px;
+}
+.progressText{
+    position: absolute;
+    left: -16px;
+    top: 34px;
+    width: 60px;
+    height: 50px;
+    text-align: center;
+    display: inline-block;
+    color: #b4b4b4;
+}
+.progressText i{
+    font-size: 26px;
+}
+.progressText span{
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+    margin-top: 3px;
+}
+.progressTextGreen{
+    color: #4cb223;
+}
+/*end 进度结束*/
+.applyComplete{
+    width: 100%;
+    display: inline-block;
+    padding: 30px 8%;
+    background: #fff;
+    border-bottom: 1px solid #d5d5d5;
+}
+.applyComplete a,.listLength{
+    width: 100%;
+    display: inline-block;
+}
+.applyComplete i.icon-completed{
+    font-size: 50px;
+    vertical-align: middle;
+    color: #26d308;
+    margin-top: 20px;
+    float: left;
+}
+.applyComplete i.icon-youjiantou{
+    float: right;
+    margin-top: 18px;
+    color: #c6c6c6;
+    font-size: 22px;
+}
+.applyComplete span{
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.applyComplete span em{
+    font-weight: bold;
+    color: #000;
+    font-size: 16px;
+}
+.applyComplete span p{
+    color: #969696;
+    margin: 2px 0 0;
+    padding: 0;
+}
+.applyBtn{
+    width: 90%;
+    display: inline-block;
+    margin-left: 5%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.returnBtn,.aRegister{
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+    color: #ffffff;
+    padding: 10px 0;
+    background-color: #4fb222;
+    border-radius: 4px;
+    border: 0;
+}
+.aRegister:after,.aRegister:focus{
+    color: #ffffff;
+}
+/*banner*/
+.bannerImg{
+    width: 100%;
+    display: inline-block;
+    float: left;
+}
+.bannerImg img{
+    width: 100%;
+    display: inline-block;
+    float: left;
+}
+.ulMenu li{
+    float: left;
+    width: 49.8%;
+    display: inline-block;
+    border: 1px solid #dcdcdc;
+    text-align: center;
+    border-top: 0;
+    border-left: 0;
+}
+.ulMenu li a{
+    width: 100%;
+    display: inline-block;
+    padding: 25px 0;
+    color: #333333;
+    font-size: 1.2em;
+}
+.ulMenu li:nth-child(even){
+    border-right: 0;
+}
+.ulMenu li:nth-child(3),.ulMenu li:nth-child(4){
+    border-bottom: 0;
+}
+.ulMenu li a > div{
+    width: 50px;
+    height: 50px;
+    background-color: #b57a02;
+    border-radius: 100%;
+    text-align: center;
+    line-height: 50px;
+    display: inline-block;
+}
+.ulMenu li:nth-child(2) a > div{
+    background-color: #728601;
+}
+.ulMenu li:nth-child(3) a > div{
+    background-color: #a301b6;
+}
+.ulMenu li:nth-child(4) a > div{
+    background-color: #015ab6;
+}
+.ulMenu li a > div i{
+    font-size: 26px;
+    color: #ffffff;
+}
+.ulMenu li a > em{
+    width: 100%;
+    display: inline-block;
+    margin-top: 10px;
+}
+.remarks{
+    margin-top: 60px;
+    width: 96%;
+    display: inline-block;
+    margin-left: 2%;
+    color: #888;
+}
+.remarks span{
+    width: 100%;
+    display: inline-block;
+    font-size: 16px;
+    margin-bottom: 6px;
+    color: #666;
+}
+.listNumber{
+    width: 100%;
+    display: inline-block;
+    padding: 15px 5%;
+    background-color: #fff;
+    color: #888888;
+}
+.listNumber span{
+    float: right;
+}
+.listLength ul li.dsh{
+    width: 98%;
+    margin-left: 1%;
+    display: inline-block;
+    position: relative;
+    margin-top: 20px;
+    float: left;
+    background-color: #fff;
+    height: 70px;
+}
+.listLength ul li.dsh div.border{
+    border-left: 4px solid #3da6eb;
+    color: #3da6eb;
+    width: 60px;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.listLength ul li.dtj div.border{
+    border-left: 4px solid #bababa;
+    color: #bababa;
+}
+.listText{
+    float: left;
+    margin-left: 70px;
+    padding: 8px 0 8px 10px;
+    border-left: 1px solid #dcdcdc;
+    margin-top: 7px;
+}
+.listText span{
+    width: 90%;
+    display: inline-block;
+    line-height: 20px;
+    color: #444444;
+}
+.listText span em{
+    width: 70px;
+    display: inline-block;
+}
+.listLength ul li a{
+    display: inline-block;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    color: #7fc169;
+}
+/*填写申请书*/
+.ulFrom,.applyFrom,.ulImage{
+    width: 100%;
+    display: inline-block;
+    background-color: #fff;
+}
+.ulFrom{
+    margin-top: 5px;
+}
+.ulFrom li{
+    width: 100%;
+    display: inline-block;
+    padding: 10px 4%;
+    border-bottom: 1px solid #dcdcdc;
+}
+.ulFrom li span{
+    width: 30%;
+    display: inline-block;
+    color: #333333;
+}
+.ulFrom li input{
+    width: 70%;
+    display: inline-block;
+    margin-bottom: 0;
+    padding: 10px 6px;
+    font-size: 12px;
+    border: 0;
+    text-align: right;
+}
+.ulFrom li span em{
+    color: #ff0000;
+}
+.ulFrom li:last-child span{
+    width: 100%;
+    display: inline-block;
+}
+.ulFrom li:last-child textarea{
+    margin-bottom: 0;
+    border: 0;
+    padding: 10px 6px;
+    font-size: 12px;
+}
+.applyCheckbox{
+    margin-top: 8px;
+}
+.applyCheckbox input[type=checkbox], .mui-radio.mui-left input[type=radio]{
+    left: 12px !important;
+}
+.applyCheckbox label{
+    padding-left: 46px !important;
+    margin-top: 2px;
+}
+.applyCheckbox label em{
+    color: #ff0000;
+}
+.applyCheckbox{
+    height: initial !important;
+}
+.applyCheckbox:after{
+    background-color:#f0f0f0 !important;
+}
+.applyCheckbox span{
+    width: 100%;
+    padding: 0 4%;
+    display: inline-block;
+    color: #4cb223;
+}
+/*上传影像*/
+.ulImage > li{
+    width: 100%;
+    display: inline-block;
+    padding: 15px 4%;
+    border-bottom: 1px solid #dcdcdc;
+}
+.ulImage > li >span{
+    width: 35%;
+    display: inline-block;
+}
+.ulImage > li >span:last-child{
+    float: right;
+    width: 65%;
+    display: inline-block;
+    text-align: right;
+}
+.ulImage > li >input{
+    width: 65%;
+    display: inline-block;
+    font-size: 14px;
+    text-align: right;
+    margin-bottom: 0;
+    height: 30px;
+}
+.ulImage li.danger > span:last-child{
+    width: 100%;
+    display: inline-block;
+    text-align: left;
+    margin-top: 5px;
+}
+.ulImage li > div.titleBox > i{
+    float: right;
+    display: inline-block;
+    color: #888888;
+    transition: all .3s;
+}
+.titleBox i.rotate{
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+    transition: all .3s;
+}
+.titleBox span{
+    width: 35%;
+    display: inline-block;
+}
+.imgBox{
+    margin-top: 10px;
+    width: 100%;
+    border: 1px solid #4cb223;
+    padding: 5px;
+    float: left;
+    border-radius: 4px;
+    display: none;
+}
+.ulUpImg,.ulUpImg li{
+    width: 100%;
+    display: inline-block;
+    float: left;
+}
+.ulUpImg li{
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    float: left;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    margin: 5px 5px;
+    overflow: hidden;
+    position: relative;
+    background: #fff no-repeat center;
+    background-size: cover;
+    position: relative;
+}
+.ulUpImg li img{
+    width: 100%;
+    display: inline-block;
+}
+.ulUpImg li a{
+    width: 100%;
+    display: inline-block;
+    padding: 32px 0;
+    text-align: center;
+}
+.ulUpImg li a > i{
+    font-size: 40px;
+    display: inline-block;
+    color: #888888;
+    padding-top: 4px;
+}
+
+.ulUpImg li div.info{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,.5);
+    height: 24px;
+    width: 100%;
+    padding: 0 8px;
+    color: #ffffff;
+}
+.pRemarks{
+    width: 100%;
+    display: inline-block;
+    padding: 10px 4%;
+    font-size: 14px;
+}
+.pRemarks span{
+    color: #ff0000;
+}
+.applyBtnTwo button{
+    width: 48%;
+    display: inline-block;
+    float: left;
+    margin-left: 4%;
+}
+.applyBtnTwo button:first-child{
+    margin-left: 0;
+}
+.btn7a7a1d{
+    background-color: #7a7a1d;
+}
+
+/*图片上传*/
+#card,#case,#diagnosis,#invoice,#other{display: none;}
+canvas{width: 100%;border: 1px solid #000000;}
+.touch{background-color: #ddd;}
+.img-list{ border-radius: 4px; background-color: #ffffff}
+.img-list li{position: relative;display: inline-block;width: 60px;height: 60px;margin: 8px 8px 20px 8px;background: #fff no-repeat center;background-size: cover; border-radius: 5px; float: left;}
+.img-list li img{width: 100%; display: inline-block; height: 60px; border-radius: 5px;}
+.progress{position: absolute;width: 100%;height: 20px;line-height: 20px;bottom: 0;left: 0;background-color:rgba(100,149,198,.5);}
+.progress span{display: block;width: 0;height: 100%;background-color:rgb(100,149,198);text-align: center;color: #FFF;font-size: 13px;}
+.size{position: absolute;width: 100%;height: 15px;line-height: 15px;bottom: 2px;text-align: center;font-size: 13px;color: #fff;}
+.tips{display: block;text-align:center;font-size: 13px;margin: 10px;color: #999;}
+.pic-list{margin: 10px;line-height: 18px;font-size: 13px;}
+.pic-list a{display: block;margin: 10px 0;}
+.pic-list a img{vertical-align: middle;max-width: 30px;max-height: 30px;margin: -4px 0 0 10px;}
+p.progress{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    line-height: 20px;
+    background-color:rgba(100,149,198,.5);
+}
+.webuploader-element-invisible{
+    width: 100px;
+    height: 100px;
+    display: block;
+}
+.webuploader-pick i{
+    font-size: 50px;
+    display: inline-block;
+}
+.webuploader-pick-hover,.webuploader-pick{
+    background-color: #ffffff !important;
+}
+.webuploader-pick-hover i,.webuploader-pick i{
+    color: #888888;
+}
+.liCard  a > div{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    line-height: 78px;
+    color: #888888;
+}
+
+
+/*用户登陆 注册*/
+.loginTx{
+    position: relative;
+    width: 100%;
+    display: inline-block;
+    margin-top: 50px;
+    height: 100px;
+}
+.loginPhoto{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    display: block;
+    margin-left: -50px;
+    border-radius: 100%;
+    overflow: hidden;
+}
+.loginPhoto img{
+    width: 100%;
+    display: inline-block;
+    float: left;
+}
+.nextStepBox{
+    width: 100%;
+    display: none;
+}
+.loginUl,.registerUl{
+    width: 100%;
+    display: inline-block;
+    margin-top: 20px;
+}
+.loginUl li{
+    float: left;
+    width: 100%;
+    display: inline-block;
+    padding: 5px 15%;
+}
+.loginUl li span{
+    width: 20%;
+    display: inline-block;
+}
+.loginUl li input{
+    width: 80%;
+    display: inline-block;
+    margin-bottom: 0;
+    font-size: 14px;
+    border: 0;
+}
+.loginWZ{
+    width: 100%;
+    display: inline-block;
+    padding:  0 5%;
+}
+.loginWZ a{
+    color: #4cb223;
+    border: 1px solid #4cb223;
+    padding: 3px 10px;
+    border-radius: 4px;
+    display: inline-block;
+}
+.loginWZ a:last-child{
+    float: right;
+}
+p.reminder{
+    width: 96%;
+    display: inline-block;
+    padding: 5px;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    margin-top: 50%;
+    margin-left: 2%;
+}
+p.reminder span{
+    width: 100%;
+    display: inline-block;
+    color: #333333;
+}
+.register{
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+    margin-top: 40px;
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #888;
+}
+.registerUl li{
+    width: 90%;
+    display: inline-block;
+    padding: 10px 0;
+    border-bottom: 1px solid #dcdcdc;
+    margin-left: 5%;
+    float: left;
+}
+.registerUl li span{
+    width: 20%;
+    display: inline-block;
+}
+.registerUl li input{
+    width: 80%;
+    display: inline-block;
+    margin-bottom: 0;
+    font-size: 14px;
+    border: 0;
+}
+p.zhu{
+    width: 90%;
+    margin-left: 5%;
+    display: inline-block;
+    margin-top: 10px;
+}
+p.zhu span{
+    color: red;
+}
+.registerUl li.liCode input{
+    width: 50%;
+    display: inline-block;
+}
+.registerUl li.liCode input.getCode{
+    width: 30%;
+    float: right;
+    display: inline-block;
+    height: 40px;
+    overflow: hidden;
+    text-align: center;
+    line-height: 40px;
+    color: #ffffff;
+    background-color: #4cb223;
+    border-radius: 4px;
+}
+.registerUl li.liCode input.getCodeBac{
+    background-color: #c1c1c1 !important;
+}
+.popupBox{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.5);
+    left: 0;
+    top: 0;
+    z-index: 99;
+    display: none;
+}
+.popup{
+    width: 80%;
+    display: inline-block;
+    background-color: #fff;
+    height: 500px;
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    margin-top: -250px;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-y: auto;
+}
+.popupBtn{
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    margin-top: 10px;
+}
+.popupBtn a{
+    padding: 5px 15px;
+    background-color: #4cb223;
+    color: #ffffff;
+    border-radius: 4px;
+}
+.mui-toast-message{
+    padding: 10px 15px !important;
+}
+
+/*手机适配*/
+@media only screen and (min-width:320px) and (min-height:480px){
+
+}
+@media only screen and (min-width:320px) and (min-height:568px){
+
+}
+@media only screen and (min-width:360px) and (min-height:640px){
+    p.reminder{
+        margin-top: 46%;
+    }
+}
+@media only screen and (min-width:375px) and (min-height:667px){
+
+}
+@media only screen and (min-width:414px) and (min-height:736px){
+
+}
+

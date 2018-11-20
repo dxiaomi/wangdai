@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>理赔申请</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><!-- 优先使用 IE 最新版本和 Chrome -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link href="mui/css/mui.min.css" type="text/css" rel="stylesheet">
+    <link href="mui/css/mui.picker.css" type="text/css" rel="stylesheet">
+    <link href="mui/css/mui.poppicker.css" type="text/css" rel="stylesheet">
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+    <link href="http://at.alicdn.com/t/font_795280_wy42w9inyvh.css" type="text/css" rel="stylesheet">
+</head>
+<body style="background-color: #f1f1f1;">
+<form class="mui-input-group formBac">
+    <input type="hidden" id="inputUpdate" value="update">
+    <div class="lastStepBox">
+        <div class="applyBox">
+            <div class="applyProgress">
+                <div class="applyProgressLeft">
+                    <div class="progressOne">
+                        <div class="transverse"></div>
+                        <div class="progressSpot progressSpotGreen"></div>
+                        <div class="progressText progressTextGreen">
+                            <i class="iconfont icon-icon"></i>
+                            <span>填写申请书</span>
+                        </div>
+                    </div>
+                    <div class="progressTow">
+                        <div class="transverse transverseGray"></div>
+                        <div class="progressSpot progressSpotGray"></div>
+                        <div class="progressText">
+                            <i class="iconfont icon-shangchuantupian"></i>
+                            <span>上传影像</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="applyProgressRight">
+                    <div class="progressThree">
+                        <div class="progressSpot progressSpotGray"></div>
+                        <div class="progressText">
+                            <i class="iconfont icon-wancheng-copy"></i>
+                            <span>完成申请</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="applyFrom">
+            <ul class="ulFrom">
+                <li><span>出险人姓名<em>*</em></span><input type="text" id="name" name="name" placeholder="请输入出险人姓名"></li>
+                <li id="liSex"><span>出险人性别<em>*</em></span><input type="text" id="sex" name="sex" placeholder="请输入性别"></li>
+                <li id="liRelationship"><span>与出险人关系<em>*</em></span><input type="text" id="relation" name="relation" placeholder="请输入关系"></li>
+                <li><span>身份证<em>*</em></span><input type="text" id="certNo" name="certNo" placeholder="请输入身份证"></li>
+                <li><span>联系电话<em>*</em></span><input type="text" id="phone" name="phone" placeholder="请输入联系电话"></li>
+                <li><span>电子邮件<em>*</em></span><input type="text" id="mail" name="mail" placeholder="请输入电子邮件"></li>
+                <li><span>出险原因</span>
+                    <textarea id="cause" name="cause" placeholder="请输入出险原因"></textarea>
+                </li>
+            </ul>
+        </div>
+        <div class="mui-input-row mui-checkbox mui-left applyCheckbox">
+            <label>我已经确认以上信息属实<em>*</em></label>
+            <input name="checkbox" value="Item 1" type="checkbox" checked>
+            <input type="hidden" id="checkboxState" value="true">
+            <span class="spanRead">并阅读且同意《反保险诈骗提示》和《声明及授权》</span>
+        </div>
+        <div class="applyBtn" style="margin-top: 10px;">
+            <a href="JavaScript:;" class="returnBtn">下一步</a>
+        </div>
+    </div>
+    <div class="nextStepBox">
+        <div class="applyBox">
+            <div class="applyProgress">
+                <div class="applyProgressLeft">
+                    <div class="progressOne">
+                        <div class="transverse"></div>
+                        <div class="progressSpot progressSpotGreen"></div>
+                        <div class="progressText progressTextGreen">
+                            <i class="iconfont icon-icon"></i>
+                            <span>填写申请书</span>
+                        </div>
+                    </div>
+                    <div class="progressTow">
+                        <div class="transverse"></div>
+                        <div class="progressSpot progressSpotGreen"></div>
+                        <div class="progressText progressTextGreen">
+                            <i class="iconfont icon-shangchuantupian"></i>
+                            <span>上传影像</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="applyProgressRight">
+                    <div class="progressThree">
+                        <div class="progressSpot progressSpotGray"></div>
+                        <div class="progressText">
+                            <i class="iconfont icon-wancheng-copy"></i>
+                            <span>完成申请</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="applyFrom">
+            <ul class="ulImage">
+                <li>
+                    <div class="titleBox"><span>身份证</span><span>上传图片<em id="carId">0</em>/3</span><i class="iconfont icon-youjiantou"></i></div>
+                    <div class="imgBox">
+                        <ul class="ulUpImg" id="ulCart">
+                            <li class="liCard" id="certImg"><input  type="file" id="card" accept="image/*" multiple  class="img-file"><a id="upload"  href="javascript:;" ><i class="iconfont icon-web-icon-"></i> </a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <div class="titleBox"><span>病例</span><span>上传图片<em id="emCase">0</em>/2</span><i class="iconfont icon-youjiantou"></i></div>
+                    <div class="imgBox">
+                        <ul class="ulUpImg" id="ulCase">
+                            <li class="liCase" id="caseImg"><input  type="file" id="case" accept="image/*" multiple  class="img-file"><a id="uploadCase" href="javascript:;" ><i class="iconfont icon-web-icon-"></i> </a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <div class="titleBox"><span>诊断书</span><span>上传图片<em id="emDiagnosis">0</em>/2</span><i class="iconfont icon-youjiantou"></i></div>
+                    <div class="imgBox">
+                        <ul class="ulUpImg" id="ulDiagnosis">
+                            <li class="liDiagnosis" id="diagnosisImg"><input  type="file" id="diagnosis" accept="image/*" multiple  class="img-file"><a id="uploadDiagnosis" href="javascript:;" ><i class="iconfont icon-web-icon-"></i> </a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <div class="titleBox"><span>发票收据</span><span>上传图片<em id="emInvoice">0</em>/10</span><i class="iconfont icon-youjiantou"></i></div>
+                    <div class="imgBox">
+                        <ul class="ulUpImg" id="ulInvoice">
+                            <li class="liInvoice" id="invoiceImg"><input  type="file" id="invoice" accept="image/*" multiple  class="img-file"><a id="uploadInvoice" href="javascript:;" ><i class="iconfont icon-web-icon-"></i> </a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <div class="titleBox"><span>其他</span><span>上传图片<em id="emOther">0</em>/5</span><i class="iconfont icon-youjiantou"></i></div>
+                    <div class="imgBox">
+                        <ul class="ulUpImg" id="ulOthers">
+                            <li class="liOther" id="othersImg"><input  type="file" id="other" accept="image/*" multiple  class="img-file"><a id="uploadOther" href="javascript:;" ><i class="iconfont icon-web-icon-"></i> </a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <p class="pRemarks"><span>注：</span>请上传完整的身份证及照片（支持jpg,png,gif）</p>
+        <div class="applyBtn applyBtnTwo">
+            <button id="baocun" class="returnBtn btn7a7a1d">保存</button>
+            <button id="makeSure" class="returnBtn">提交</button>
+        </div>
+    </div>
+
+</form>
+<div class="popupBox">
+    <div class="popup">
+        这里是并阅读且同意《反保险诈骗提示》和《声明及授权》
+        <div class="popupBtn"><a href="#">确定</a> </div>
+    </div>
+</div>
+<script src="mui/js/mui.min.js"></script>
+<script src="mui/js/jquery.min.js"></script>
+<script src="mui/js/mui.picker.js"></script>
+<script src="mui/js/mui.poppicker.js"></script>
+<script src="mui/js/base.js"></script>
+<script>
+    $(function () {
+        $(".ulImage").on("tap",".titleBox",function () {
+            $(this).siblings(".imgBox").toggle();
+            $(this).find("i").toggleClass("rotate")
+        })
+        var urlText = window.location.href;
+        var textId = urlText.split("=");
+
+        $.ajax({
+            url : url +'/claim/applyController/queryApplyById.do?id='+textId[1],
+            type : "POST",
+            dataType :"JSON",
+            success:function (data) {
+                var data = data.data;
+                console.log(data);
+                $("#name").val(data.name);
+                $("#sex").val(data.sex);
+                $("#relation").val(data.relation);
+                $("#certNo").val(data.certNo);
+                $("#phone").val(data.phone);
+                $("#mail").val(data.mail);
+                $("#cause").val(data.cause);
+                if(data.cause == null){
+                    $("#cause").text("");
+                }
+
+                //身份证
+                var certImgData = [data.certImg1,data.certImg2,data.certImg3];
+                var certImgLi = "";
+                $.each(certImgData,function (index, val) {
+                    var index = index +1;
+                    if(val == null){
+                        return false
+                    }
+                    certImgLi += '<li class="linumber" id="cert_img'+index+'"><img src="'+val+'"><input type="hidden" id="input_cert_img'+index+'" value="'+val+'"> </li>'
+                });
+                $("#certImg").before(certImgLi);
+                $("#carId").text($("#ulCart").find("li.linumber").length);
+
+                //病例
+                var caseImgData = [data.caseImg1,data.caseImg2];
+                var caseImgLi = "";
+                $.each(caseImgData,function (index, val) {
+                    var index = index +1;
+                    if(val == null){
+                        return false
+                    }
+                    caseImgLi += '<li class="linumber" id="case_img'+index+'"><img src="'+val+'"> <input type="hidden" id="input_case_img'+index+'" value="'+val+'"></li>'
+                });
+                $("#caseImg").before(caseImgLi);
+                $("#emCase").text($("#ulCase").find("li.linumber").length);
+
+                //诊断书
+                var diagnosisImgData = [data.diagnosisImg1,data.diagnosisImg2];
+                var diagnosisImgLi = "";
+                $.each(diagnosisImgData,function (index, val) {
+                    var index = index +1;
+                    if(val == null){
+                        return false
+                    }
+                    diagnosisImgLi += '<li class="linumber" id="diagnosis_img'+index+'"><img src="'+val+'"><input type="hidden" id="input_diagnosis_img'+index+'" value="'+val+'"> </li>'
+                });
+                $("#diagnosisImg").before(diagnosisImgLi);
+                $("#emDiagnosis").text($("#ulDiagnosis").find("li.linumber").length);
+
+                //发票收据
+                var invoiceImgData = [data.invoiceImg1,data.invoiceImg2,data.invoiceImg3,data.invoiceImg4,data.invoiceImg5,data.invoiceImg6,data.invoiceImg7,data.invoiceImg8,data.invoiceImg9,data.invoiceImg10];
+                var invoiceImgLi = "";
+                $.each(invoiceImgData,function (index, val) {
+                    var index = index +1;
+                    if(val == null){
+                        return false
+                    }
+                    invoiceImgLi += '<li class="linumber" id="invoice_img'+index+'"><img src="'+val+'"><input type="hidden" id="input_invoice_img'+index+'" value="'+val+'"></li>'
+                });
+                $("#invoiceImg").before(invoiceImgLi);
+                $("#emInvoice").text($("#ulInvoice").find("li.linumber").length);
+
+                //其他
+                var othersImgData = [data.othersImg1,data.othersImg2,data.othersImg3,data.othersImg4,data.othersImg5];
+                var othersImgLi = "";
+                $.each(othersImgData,function (index, val) {
+                    var index = index +1;
+                    if(val == null){
+                        return false
+                    }
+                    othersImgLi += '<li class="linumber" id="others_img'+index+'"><img src="'+val+'"><input type="hidden" id="input_others_img'+index+'" value="'+val+'"></li>'
+                });
+                $("#othersImg").before(othersImgLi);
+                $("#emOther").text($("#ulOthers").find("li.linumber").length);
+            }
+        })
+
+
+    });
+</script>
+<script>
+    (function($, doc) {
+        $.init();
+        $.ready(function() {
+            var _getParam = function(obj, param) {
+                return obj[param] || '';
+            };
+            //性别
+            var sexPicker = new $.PopPicker();
+            sexPicker.setData([{
+                value: '0',
+                text: '女'
+            }, {
+                value: '1',
+                text: '男'
+            }]);
+            var sexButton = doc.getElementById('liSex');
+            sexButton.addEventListener('tap', function(event) {
+                sexPicker.show(function(items) {
+                    document.getElementById('sex').value = items[0].text;
+                });
+            }, false);
+            // 关系
+            var relationshipPicker = new $.PopPicker();
+            relationshipPicker.setData([{
+                value: '0',
+                text: '关系1'
+            }, {
+                value: '1',
+                text: '关系2'
+            }]);
+            var relationshipPickerButton = doc.getElementById('liRelationship');
+            relationshipPickerButton.addEventListener('tap', function(event) {
+                relationshipPicker.show(function(items) {
+                    document.getElementById('relation').value = items[0].text;
+                });
+            }, false);
+        });
+    })(mui, document);
+
+    /*授权显示隐藏*/
+    mui('.applyCheckbox').on("tap",".spanRead",function () {
+        $(".popupBox").show();
+    })
+    mui('.popupBtn').on("tap","a",function () {
+        $(".popupBox").hide();
+    })
+
+
+    mui('.mui-input-group').on('change', 'input', function() {
+        var value = this.checked?"true":"false";
+        //this.previousElementSibling.innerText = "checked："+value;
+        $("#checkboxState").val(value)
+    });
+    //下一步
+    mui('.applyBtn').on('tap','a' ,function(event) {
+        var name = $("#name").val();
+        var sex = $("#sex").val();
+        var relation = $("#relation").val();
+        var cert_no = $("#cert_no").val();
+        var phone = $("#phone").val();
+        var mail = $("#mail").val();
+        var checkboxState = $("#checkboxState").val();
+
+        if(name == ""){
+            mui.toast('请输入出险人姓名！');
+            return false;
+        }
+        if(sex == ""){
+            mui.toast('请选择出险人性别！');
+            return false;
+        }
+        if(relation == ""){
+            mui.toast('请选择与出险人关系！');
+            return false;
+        }
+        if(cert_no == ""){
+            mui.toast('请输入身份证！');
+            return false;
+        }
+        if(phone == ""){
+            mui.toast('请输入联系电话！');
+            return false;
+        }
+        var pattern = /^1[34578]\d{9}$/;   // 验证手机号
+        if(!pattern.test(phone)){
+            mui.toast('请正确填写手机号！');
+            return false;
+        }
+        var mailReg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
+        if(mail == ""){
+            mui.toast('请输入电子邮件！');
+            return false;
+        }
+        if(!mailReg.test(mail)){
+            mui.toast('电子邮件格式错误！');
+            return false;
+        }
+        if(checkboxState == "" || checkboxState == "false"){
+            mui.toast('请确认以上信息！');
+            return false;
+        }
+        $(".lastStepBox").hide();
+        $(".nextStepBox").show();
+    })
+    // 保存
+    mui('.applyBtnTwo').on('tap','#baocun' ,function(event) {
+        $("#baocun").attr("disabled",true);
+        formDataAjax("0");
+    })
+    // 提交
+    mui('.applyBtnTwo').on('tap','#makeSure' ,function(event) {
+        $("#makeSure").attr("disabled",true);
+        formDataAjax("1");
+    })
+</script>
+<script>
+    /*身份证*/
+    $("#upload").on("click", function() {
+        fileCard.click();
+    })
+        .on("touchstart", function() {
+            $(this).addClass("touch")
+        })
+        .on("touchend", function() {
+            $(this).removeClass("touch")
+        });
+    var fileCard = document.getElementById("card");   //身份证
+    //    用于压缩图片的canvas
+    var canvas = document.createElement("canvas");
+    var ctx = canvas.getContext('2d');
+    //    瓦片canvas
+    var tCanvas = document.createElement("canvas");
+    var tctx = tCanvas.getContext("2d");
+    var maxsize = 100 * 1024;
+    var Li_Number = 1;
+    fileCard.onchange = function() {
+        var fileId = $(this).attr("id");
+        var emText = $("#"+fileId).parents("div.imgBox").siblings("div.titleBox").find("em").text();
+        var liLength = $("#" +fileId).parents("ul.ulUpImg").find("li").length;
+        if(liLength == "1"){
+            Li_Number = 1;
+        }else {
+            Li_Number = emText*1 +1;
+        }
+        if(liLength > 3){
+            mui.alert('最多可上传3张图片！');
+            return false;
+        }
+        $("#carId").text(liLength);
+        if (!this.files.length) return;
+        var files = Array.prototype.slice.call(this.files);
+        files.forEach(function(file, i) {
+            if (!/\/(?:jpeg|png|gif)/i.test(file.type)) return;
+            var reader = new FileReader();
+            var li = document.createElement("li");
+            li.className = 'linumber';
+            li.id='cert_img'+Li_Number;
+            // 获取图片大小
+            var size = file.size / 1024 > 1024 ? (~~(10 * file.size / 1024 / 1024)) / 10 + "MB" : ~~(file.size / 1024) + "KB";
+            li.innerHTML = '<div class="progress"><span></span></div><div class="size">' + size + '</div>';
+            $(".liCard").before($(li));
+            reader.onload = function() {
+                var result = this.result;
+                var img = new Image();
+                img.src = result;
+                //$(li).css("background-image", "url(" + result + ")");
+                $(li).append('<img src='+result+'>');
+                //如果图片大小小于100kb，则直接上传
+                if (result.length <= maxsize) {
+                    img = null;
+                    upload(result, file.type, $(li));
+                    return;
+                }
+
+                //  图片加载完毕之后进行压缩，然后上传
+                if (img.complete) {
+                    callback();
+                } else {
+                    img.onload = callback;
+                }
+                function callback() {
+                    var data = compress(img);
+                    upload(data, file.type, $(li));
+                    img = null;
+                }
+            };
+            reader.readAsDataURL(file);
+            Li_Number++;
+        });
+    };
+
+    //病例
+    $("#uploadCase").on("click", function() {
+        fileCase.click();
+    })
+        .on("touchstart", function() {
+            $(this).addClass("touch")
+        })
+        .on("touchend", function() {
+            $(this).removeClass("touch")
+        });
+    var fileCase = document.getElementById("case");   //病例
+    fileCase.onchange = function() {
+        var fileId = $(this).attr("id");
+        var emText = $("#"+fileId).parents("div.imgBox").siblings("div.titleBox").find("em").text();
+        var liLength = $("#" +fileId).parents("ul.ulUpImg").find("li").length;
+        if(liLength == "1"){
+            Li_Number = 1;
+        }else {
+            Li_Number = emText*1 +1;
+        }
+        if(liLength > 2){
+            mui.alert('最多可上传2张图片！');
+            return false;
+        }
+        $("#emCase").text(liLength);
+        if (!this.files.length) return;
+        var files = Array.prototype.slice.call(this.files);
+        files.forEach(function(file, i) {
+            if (!/\/(?:jpeg|png|gif)/i.test(file.type)) return;
+            var reader = new FileReader();
+            var li = document.createElement("li");
+            li.className = 'linumber';
+            li.id='case_img'+Li_Number;
+            // 获取图片大小
+            var size = file.size / 1024 > 1024 ? (~~(10 * file.size / 1024 / 1024)) / 10 + "MB" : ~~(file.size / 1024) + "KB";
+            li.innerHTML = '<div class="progress"><span></span></div><div class="size">' + size + '</div>';
+            $(".liCase").before($(li));
+            reader.onload = function() {
+                var result = this.result;
+                var img = new Image();
+                img.src = result;
+                //$(li).css("background-image", "url(" + result + ")");
+                $(li).append('<img src='+result+'>');
+                //如果图片大小小于100kb，则直接上传
+                if (result.length <= maxsize) {
+                    img = null;
+                    upload(result, file.type, $(li));
+                    return;
+                }
+
+                //  图片加载完毕之后进行压缩，然后上传
+                if (img.complete) {
+                    callback();
+                } else {
+                    img.onload = callback;
+                }
+                function callback() {
+                    var data = compress(img);
+                    upload(data, file.type, $(li));
+                    img = null;
+                }
+            };
+            reader.readAsDataURL(file);
+            Li_Number++;
+        });
+    };
+    //诊断书
+    $("#uploadDiagnosis").on("click", function() {
+        fileDiagnosis.click();
+    })
+        .on("touchstart", function() {
+            $(this).addClass("touch")
+        })
+        .on("touchend", function() {
+            $(this).removeClass("touch")
+        });
+    var fileDiagnosis = document.getElementById("diagnosis");   //诊断书
+    fileDiagnosis.onchange = function() {
+        var fileId = $(this).attr("id");
+        var emText = $("#"+fileId).parents("div.imgBox").siblings("div.titleBox").find("em").text();
+        var liLength = $("#" +fileId).parents("ul.ulUpImg").find("li").length;
+        if(liLength == "1"){
+            Li_Number = 1;
+        }else {
+            Li_Number = emText*1 +1;
+        }
+        if(liLength > 2){
+            mui.alert('最多可上传2张图片！');
+            return false;
+        }
+        $("#emDiagnosis").text(liLength);
+        if (!this.files.length) return;
+        var files = Array.prototype.slice.call(this.files);
+        files.forEach(function(file, i) {
+            if (!/\/(?:jpeg|png|gif)/i.test(file.type)) return;
+            var reader = new FileReader();
+            var li = document.createElement("li");
+            li.className = 'linumber';
+            li.id='diagnosis_img'+Li_Number;
+            // 获取图片大小
+            var size = file.size / 1024 > 1024 ? (~~(10 * file.size / 1024 / 1024)) / 10 + "MB" : ~~(file.size / 1024) + "KB";
+            li.innerHTML = '<div class="progress"><span></span></div><div class="size">' + size + '</div>';
+            $(".liDiagnosis").before($(li));
+            reader.onload = function() {
+                var result = this.result;
+                var img = new Image();
+                img.src = result;
+                //$(li).css("background-image", "url(" + result + ")");
+                $(li).append('<img src='+result+'>');
+                //如果图片大小小于100kb，则直接上传
+                if (result.length <= maxsize) {
+                    img = null;
+                    upload(result, file.type, $(li));
+                    return;
+                }
+
+                //  图片加载完毕之后进行压缩，然后上传
+                if (img.complete) {
+                    callback();
+                } else {
+                    img.onload = callback;
+                }
+                function callback() {
+                    var data = compress(img);
+                    upload(data, file.type, $(li));
+                    img = null;
+                }
+            };
+            reader.readAsDataURL(file);
+            Li_Number++;
+        });
+    };
+    //发票
+    $("#uploadInvoice").on("click", function() {
+        fileInvoice.click();
+    })
+        .on("touchstart", function() {
+            $(this).addClass("touch")
+        })
+        .on("touchend", function() {
+            $(this).removeClass("touch")
+        });
+    var fileInvoice = document.getElementById("invoice");   //发票
+    fileInvoice.onchange = function() {
+        var fileId = $(this).attr("id");
+        var emText = $("#"+fileId).parents("div.imgBox").siblings("div.titleBox").find("em").text();
+        var liLength = $("#" +fileId).parents("ul.ulUpImg").find("li").length;
+        if(liLength == "1"){
+            Li_Number = 1;
+        }else {
+            Li_Number = emText*1 +1;
+        }
+        if(liLength > 10){
+            mui.alert('最多可上传10张图片！');
+            return false;
+        }
+        $("#emInvoice").text(liLength);
+        if (!this.files.length) return;
+        var files = Array.prototype.slice.call(this.files);
+        files.forEach(function(file, i) {
+            if (!/\/(?:jpeg|png|gif)/i.test(file.type)) return;
+            var reader = new FileReader();
+            var li = document.createElement("li");
+            li.className = 'linumber';
+            li.id='invoice_img'+Li_Number;
+            // 获取图片大小
+            var size = file.size / 1024 > 1024 ? (~~(10 * file.size / 1024 / 1024)) / 10 + "MB" : ~~(file.size / 1024) + "KB";
+            li.innerHTML = '<div class="progress"><span></span></div><div class="size">' + size + '</div>';
+            $(".liInvoice").before($(li));
+            reader.onload = function() {
+                var result = this.result;
+                var img = new Image();
+                img.src = result;
+                //$(li).css("background-image", "url(" + result + ")");
+                $(li).append('<img src='+result+'>');
+                //如果图片大小小于100kb，则直接上传
+                if (result.length <= maxsize) {
+                    img = null;
+                    upload(result, file.type, $(li));
+                    return;
+                }
+
+                //  图片加载完毕之后进行压缩，然后上传
+                if (img.complete) {
+                    callback();
+                } else {
+                    img.onload = callback;
+                }
+                function callback() {
+                    var data = compress(img);
+                    upload(data, file.type, $(li));
+                    img = null;
+                }
+            };
+            reader.readAsDataURL(file);
+            Li_Number++;
+        });
+    };
+    //其他
+    $("#uploadOther").on("click", function() {
+        fileOther.click();
+    })
+        .on("touchstart", function() {
+            $(this).addClass("touch")
+        })
+        .on("touchend", function() {
+            $(this).removeClass("touch")
+        });
+    var fileOther = document.getElementById("other");   //其他
+    fileOther.onchange = function() {
+        var fileId = $(this).attr("id");
+        var emText = $("#"+fileId).parents("div.imgBox").siblings("div.titleBox").find("em").text();
+        var liLength = $("#" +fileId).parents("ul.ulUpImg").find("li").length;
+        if(liLength == "1"){
+            Li_Number = 1;
+        }else {
+            Li_Number = emText*1 +1;
+        }
+        if(liLength > 5){
+            mui.alert('最多可上传5张图片！');
+            return false;
+        }
+        $("#emOther").text(liLength);
+        if (!this.files.length) return;
+        var files = Array.prototype.slice.call(this.files);
+        files.forEach(function(file, i) {
+            if (!/\/(?:jpeg|png|gif)/i.test(file.type)) return;
+            var reader = new FileReader();
+            var li = document.createElement("li");
+            li.className = 'linumber';
+            li.id='others_img'+Li_Number;
+            // 获取图片大小
+            var size = file.size / 1024 > 1024 ? (~~(10 * file.size / 1024 / 1024)) / 10 + "MB" : ~~(file.size / 1024) + "KB";
+            li.innerHTML = '<div class="progress"><span></span></div><div class="size">' + size + '</div>';
+            $(".liOther").before($(li));
+            reader.onload = function() {
+                var result = this.result;
+                var img = new Image();
+                img.src = result;
+                //$(li).css("background-image", "url(" + result + ")");
+                $(li).append('<img src='+result+'>');
+                //如果图片大小小于100kb，则直接上传
+                if (result.length <= maxsize) {
+                    img = null;
+                    upload(result, file.type, $(li));
+                    return;
+                }
+
+                //  图片加载完毕之后进行压缩，然后上传
+                if (img.complete) {
+                    callback();
+                } else {
+                    img.onload = callback;
+                }
+                function callback() {
+                    var data = compress(img);
+                    upload(data, file.type, $(li));
+                    img = null;
+                }
+            };
+            reader.readAsDataURL(file);
+            Li_Number++;
+        });
+    };
+    mui(".ulUpImg").on('tap','.linumber',function(){
+        var LiId = $(this).attr("id");
+        var emId  = $("#"+LiId).parents("div.imgBox").siblings("div.titleBox").find("em").attr("id");
+        var emText  = $("#"+LiId).parents("div.imgBox").siblings("div.titleBox").find("em").text();
+        //alert(LiId);
+        var i = 1;
+        var btnArray = ['否', '是'];
+        mui.confirm('是否要删除该区域图片？', '您好', btnArray, function(e) {
+            if (e.index == 1) {
+                // alert(LiId)
+              /*  var emNumber = emText - i;
+                $("#"+LiId).remove('li');
+                $("#" +emId).text(emNumber);
+                Li_Number = emNumber + 1;*/
+                $("#"+LiId).parents("ul.ulUpImg").find("li.linumber").remove('li');
+                $("#" +emId).text("0");
+            }
+        })
+    });
+
+    //    使用canvas对大图片进行压缩
+    function compress(img) {
+        var initSize = img.src.length;
+        var width = img.width;
+        var height = img.height;
+        //如果图片大于四百万像素，计算压缩比并将大小压至400万以下
+        var ratio;
+        if ((ratio = width * height / 4000000) > 1) {
+            ratio = Math.sqrt(ratio);
+            width /= ratio;
+            height /= ratio;
+        } else {
+            ratio = 1;
+        }
+        canvas.width = width;
+        canvas.height = height;
+//        铺底色
+        ctx.fillStyle = "#fff";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        //如果图片像素大于100万则使用瓦片绘制
+        var count;
+        if ((count = width * height / 1000000) > 1) {
+            count = ~~(Math.sqrt(count) + 1); //计算要分成多少块瓦片
+//            计算每块瓦片的宽和高
+            var nw = ~~(width / count);
+            var nh = ~~(height / count);
+            tCanvas.width = nw;
+            tCanvas.height = nh;
+            for (var i = 0; i < count; i++) {
+                for (var j = 0; j < count; j++) {
+                    tctx.drawImage(img, i * nw * ratio, j * nh * ratio, nw * ratio, nh * ratio, 0, 0, nw, nh);
+                    ctx.drawImage(tCanvas, i * nw, j * nh, nw, nh);
+                }
+            }
+        } else {
+            ctx.drawImage(img, 0, 0, width, height);
+        }
+        //进行最小压缩
+        var ndata = canvas.toDataURL('image/jpeg', 0.1);
+        //console.log('压缩前：' + initSize);
+        //console.log('压缩后：' + ndata.length);
+        //console.log('压缩率：' + ~~(100 * (initSize - ndata.length) / initSize) + "%");
+        tCanvas.width = tCanvas.height = canvas.width = canvas.height = 0;
+        return ndata;
+    }
+    //    图片上传，将base64的图片转成二进制对象，塞进formdata上传
+    function upload(basestr, type, $li) {
+        var pecent = 0, loop = null;
+        //var fileObj = basestr.files[0];
+        var formData = new FormData();
+        formData.append('file', basestr);
+        var ajax = new XMLHttpRequest();
+        ajax.open("POST", url+"/claim/uploadController/upload.do", true);
+        ajax.onreadystatechange = function() {
+            if(ajax.readyState == 4) {
+                /*  if(ajax.status >= 200 && ajax.status < 300 || ajax.status == 304) {
+                  }*/
+                var obj = JSON.parse(ajax.responseText);
+                if(obj.success == true){
+                    var id = $li[0].id;
+                    var text = obj.success ? '上传成功' : '上传失败';
+                    console.log(id)
+                    clearInterval(loop);
+                    //当收到该消息时上传完毕
+                    $("#"+id).append('<input type="hidden" id="input_'+id+'" value="'+obj.data+'">');
+                    $("#"+id).find(".progress span").animate({'width': "100%"}, pecent < 95 ? 200 : 0, function() {
+                        $("#"+id).find(".progress").siblings("div.size").html(text);
+                    });
+                }
+            }
+        }
+        ajax.send(formData);
+    }
+    /**
+     * 获取blob对象的兼容性写法
+     * @param buffer
+     * @param format
+     * @returns {*}
+     */
+    function getBlob(buffer, format) {
+        try {
+            return new Blob(buffer, {type: format});
+        } catch (e) {
+            var bb = new (window.BlobBuilder || window.WebKitBlobBuilder || window.MSBlobBuilder);
+            buffer.forEach(function(buf) {
+                bb.append(buf);
+            });
+            return bb.getBlob(format);
+        }
+    }
+    /**
+     * 获取formdata
+     */
+    function getFormData() {
+        var isNeedShim = ~navigator.userAgent.indexOf('Android')
+            && ~navigator.vendor.indexOf('Google')
+            && !~navigator.userAgent.indexOf('Chrome')
+            && navigator.userAgent.match(/AppleWebKit\/(\d+)/).pop() <= 534;
+        return isNeedShim ? new FormDataShim() : new FormData()
+    }
+    /**
+     * formdata 补丁, 给不支持formdata上传blob的android机打补丁
+     * @constructor
+     */
+    function FormDataShim() {
+        console.warn('using formdata shim');
+        var o = this,
+            parts = [],
+            boundary = Array(21).join('-') + (+new Date() * (1e16 * Math.random())).toString(36),
+            oldSend = XMLHttpRequest.prototype.send;
+        this.append = function(name, value, filename) {
+            parts.push('--' + boundary + '\r\nContent-Disposition: form-data; name="' + name + '"');
+            if (value instanceof Blob) {
+                parts.push('; filename="' + (filename || 'blob') + '"\r\nContent-Type: ' + value.type + '\r\n\r\n');
+                parts.push(value);
+            }
+            else {
+                parts.push('\r\n\r\n' + value);
+            }
+            parts.push('\r\n');
+        };
+        // Override XHR send()
+        XMLHttpRequest.prototype.send = function(val) {
+            var fr,
+                data,
+                oXHR = this;
+            if (val === o) {
+                // Append the final boundary string
+                parts.push('--' + boundary + '--\r\n');
+                // Create the blob
+                data = getBlob(parts);
+                // Set up and read the blob into an array to be sent
+                fr = new FileReader();
+                fr.onload = function() {
+                    oldSend.call(oXHR, fr.result);
+                };
+                fr.onerror = function(err) {
+                    throw err;
+                };
+                fr.readAsArrayBuffer(data);
+                // Set the multipart content type and boudary
+                this.setRequestHeader('Content-Type', 'multipart/form-data; boundary=' + boundary);
+                XMLHttpRequest.prototype.send = oldSend;
+            }
+            else {
+                oldSend.call(this, val);
+            }
+        };
+    }
+</script>
+</body>
+</html>

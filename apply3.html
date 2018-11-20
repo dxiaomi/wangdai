@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>理赔申请</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><!-- 优先使用 IE 最新版本和 Chrome -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link href="mui/css/mui.min.css" type="text/css" rel="stylesheet">
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+    <link href="http://at.alicdn.com/t/font_795280_be0zjhh04n6.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <div class="applyBox">
+    <div class="applyProgress">
+        <div class="applyProgressLeft">
+            <div class="progressOne">
+                <div class="transverse"></div>
+                <div class="progressSpot progressSpotGreen"></div>
+                <div class="progressText progressTextGreen">
+                    <i class="iconfont icon-icon"></i>
+                    <span>填写申请书</span>
+                </div>
+            </div>
+            <div class="progressTow">
+                <div class="transverse"></div>
+                <div class="progressSpot progressSpotGreen"></div>
+                <div class="progressText progressTextGreen">
+                    <i class="iconfont icon-shangchuantupian"></i>
+                    <span>上传影像</span>
+                </div>
+            </div>
+        </div>
+        <div class="applyProgressRight">
+            <div class="progressThree">
+                <div class="progressSpot progressSpotGreen"></div>
+                <div class="progressText progressTextGreen">
+                    <i class="iconfont icon-wancheng-copy"></i>
+                    <span>完成申请</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="applyComplete">
+        <a href="list.html">
+            <i class="iconfont icon-completed"></i>
+            <span>
+            <em>您已完成申请</em>
+            <p>可前往我的理赔页面查看</p>
+        </span>
+            <i class="iconfont icon-youjiantou"></i>
+        </a>
+    </div>
+    <div class="applyBtn">
+        <button type="button" id="makeSure" class="returnBtn">返回</button>
+    </div>
+</body>
+<script src="mui/js/mui.min.js"></script>
+<script src="mui/js/jquery.min.js"></script>
+<script>
+    mui('.applyBtn').on('tap','#makeSure' ,function(event) {
+        window.location.href= 'index1.html'
+    })
+</script>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>待审核</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><!-- 优先使用 IE 最新版本和 Chrome -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link href="mui/css/mui.min.css" type="text/css" rel="stylesheet">
+    <link href="mui/css/mui.picker.css" type="text/css" rel="stylesheet">
+    <link href="mui/css/mui.poppicker.css" type="text/css" rel="stylesheet">
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+    <link href="http://at.alicdn.com/t/font_795280_be0zjhh04n6.css" type="text/css" rel="stylesheet">
+</head>
+<body style="background-color: #f1f1f1;">
+<form class="mui-input-group formBac">
+    <div class="applyFrom">
+        <ul class="ulImage">
+            <li><span>出险人姓名</span><span id="username"></span></li>
+            <li><span>出险人性别</span><span id="sex"></span></li>
+            <li><span>与出险人关系</span><span id="relation"></span></li>
+            <li><span>身份证</span><span id="certNo"></span></li>
+            <li><span>联系电话</span><span id="phone"></span></li>
+            <li><span>电子邮件</span><span id="mail"></span></li>
+            <li>
+                <div class="titleBox"><span>身份证</span><span>上传图片<em id="carId">3</em>/3</span><i class="iconfont icon-youjiantou"></i></div>
+                <div class="imgBox">
+                    <ul class="ulUpImg" id="certImg">
+                      <!--  <li><img src="images/img.jpg"> </li>
+                        <li><img src="images/img.jpg"> </li>
+                        <li><img src="images/img.jpg"> </li>-->
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <div class="titleBox"><span>病例</span><span>上传图片<em id="emCase">2</em>/2</span><i class="iconfont icon-youjiantou"></i></div>
+                <div class="imgBox">
+                    <ul class="ulUpImg" id="caseImg">
+                        <!--<li><img src="images/img.jpg"> </li>
+                        <li><img src="images/img.jpg"> </li>-->
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <div class="titleBox"><span>诊断书</span><span>上传图片<em id="emDiagnosis">2</em>/2</span><i class="iconfont icon-youjiantou"></i></div>
+                <div class="imgBox">
+                    <ul class="ulUpImg" id="diagnosisImg">
+                       <!-- <li><img src="images/img.jpg"> </li>
+                        <li><img src="images/img.jpg"> </li>-->
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <div class="titleBox"><span>发票收据</span><span>上传图片<em id="emInvoice">3</em>/10</span><i class="iconfont icon-youjiantou"></i></div>
+                <div class="imgBox">
+                    <ul class="ulUpImg" id="invoiceImg">
+                        <!--<li><img src="images/img.jpg"> </li>
+                        <li><img src="images/img.jpg"> </li>
+                        <li><img src="images/img.jpg"> </li>-->
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <div class="titleBox"><span>其他</span><span>上传图片<em id="emOther">3</em>/5</span><i class="iconfont icon-youjiantou"></i></div>
+                <div class="imgBox">
+                    <ul class="ulUpImg" id="othersImg">
+                       <!-- <li><img src="images/img.jpg"> </li>
+                        <li><img src="images/img.jpg"> </li>
+                        <li><img src="images/img.jpg"> </li>-->
+                    </ul>
+                </div>
+            </li>
+            <li class="danger"><span>出险原因</span><span id="cause"></span></li>
+        </ul>
+    </div>
+
+    <div class="applyBtn" style="margin-top: 10px;">
+        <a href="apply2.html" id="baocun" class="returnBtn">返回</a>
+    </div>
+</form>
+<script src="mui/js/mui.min.js"></script>
+<script src="mui/js/jquery.min.js"></script>
+<script src="mui/js/base.js"></script>
+<script>
+    $(function () {
+        $(".ulImage").on("tap",".titleBox",function () {
+            $(this).siblings(".imgBox").toggle();
+            $(this).find("i").toggleClass("rotate")
+        })
+        mui('.applyBtn').on('tap','#baocun' ,function(event) {
+            window.location.href= 'list.html'
+        })
+        var urlText = window.location.href;
+        var textId = urlText.split("=");
+        $.ajax({
+            url : url +'/claim/applyController/queryApplyById.do?id='+textId[1],
+            type : "POST",
+            dataType :"JSON",
+            success:function (data) {
+                var data = data.data;
+                console.log(data);
+                $("#username").text(data.name);
+                $("#sex").text(data.sex);
+                $("#relation").text(data.relation);
+                $("#certNo").text(data.certNo);
+                $("#phone").text(data.phone);
+                $("#mail").text(data.mail);
+                $("#cause").text(data.cause);
+                if(data.cause == null){
+                    $("#cause").text("");
+                }
+
+                //身份证
+                var certImgData = [data.certImg1,data.certImg2,data.certImg3];
+                var certImgLi = "";
+                $.each(certImgData,function (index, val) {
+                    if(val == null){
+                        return false
+                    }
+                    certImgLi += '<li><img src="'+val+'"> </li>'
+                });
+                $("#certImg").append(certImgLi);
+                $("#carId").text($("#certImg").find("li").length);
+
+                //病例
+                var caseImgData = [data.caseImg1,data.caseImg2];
+                var caseImgLi = "";
+                $.each(caseImgData,function (index, val) {
+                    if(val == null){
+                        return false
+                    }
+                    caseImgLi += '<li><img src="'+val+'"> </li>'
+                });
+                $("#caseImg").append(caseImgLi);
+                $("#emCase").text($("#caseImg").find("li").length);
+
+                //诊断书
+                var diagnosisImgData = [data.diagnosisImg1,data.diagnosisImg2];
+                var diagnosisImgLi = "";
+                $.each(diagnosisImgData,function (index, val) {
+                    if(val == null){
+                        return false
+                    }
+                    diagnosisImgLi += '<li><img src="'+val+'"> </li>'
+                });
+                $("#diagnosisImg").append(diagnosisImgLi);
+                $("#emDiagnosis").text($("#diagnosisImg").find("li").length);
+
+                //发票收据
+                var invoiceImgData = [data.invoiceImg1,data.invoiceImg2,data.invoiceImg3,data.invoiceImg4,data.invoiceImg5,data.invoiceImg6,data.invoiceImg7,data.invoiceImg8,data.invoiceImg9,data.invoiceImg10];
+                var invoiceImgLi = "";
+                $.each(invoiceImgData,function (index, val) {
+                    if(val == null){
+                        return false
+                    }
+                    invoiceImgLi += '<li><img src="'+val+'"> </li>'
+                });
+                $("#invoiceImg").append(invoiceImgLi);
+                $("#emInvoice").text($("#invoiceImg").find("li").length);
+
+                //其他
+                var othersImgData = [data.othersImg1,data.othersImg2,data.othersImg3,data.othersImg4,data.othersImg5];
+                var othersImgLi = "";
+                $.each(othersImgData,function (index, val) {
+                    if(val == null){
+                        return false
+                    }
+                    othersImgLi += '<li><img src="'+val+'"> </li>'
+                });
+                $("#othersImg").append(othersImgLi);
+                $("#emOther").text($("#othersImg").find("li").length);
+            }
+        })
+    });
+</script>
+</body>
+</html>

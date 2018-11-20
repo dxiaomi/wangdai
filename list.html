@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的理赔</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><!-- 优先使用 IE 最新版本和 Chrome -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link href="mui/css/mui.min.css" type="text/css" rel="stylesheet">
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+    <link href="http://at.alicdn.com/t/font_795280_be0zjhh04n6.css" type="text/css" rel="stylesheet">
+</head>
+<body style="background-color: #f0f0f0;">
+<div class="listNumber">
+   理赔列表
+</div>
+<div class="listLength">
+    <ul id="listClaims">
+       <!-- <li class="dsh dtj">
+            <div class="border">待提交</div>
+            <div class="listText">
+                <span><em>出险人：</em>站三</span>
+                <span><em>创建日期：</em>2018/09/09</span>
+            </div>
+            <a href="apply.html">详情</a>
+        </li>
+        <li class="dsh">
+            <div class="border">待审核</div>
+            <div class="listText">
+                <span><em>出险人：</em>站三</span>
+                <span><em>创建日期：</em>2018/09/09</span>
+            </div>
+            <a href="beAudited.html">详情</a>
+        </li>-->
+    </ul>
+</div>
+<div class="applyBtn" style="margin-top: 20px;">
+    <button type="button" id="makeSure" class="returnBtn">申请理赔</button>
+</div>
+<script src="mui/js/mui.min.js"></script>
+<script src="mui/js/jquery.min.js"></script>
+<script src="mui/js/base.js"></script>
+<script>
+    $(function () {
+        var dataArray = getCache();
+        $.ajax({
+            url: url+'/claim/applyController/queryApply.do?userId='+dataArray[0],
+            type : "POST",
+            dataType : "json",
+            success:function (data) {
+                var data = data.data;
+                //$("#dNumber").text(data.length)
+                var liUl = "";
+                $.each(data,function (index, val) {
+                    var status = val.status;
+                    //console.log(status)
+                    if(status == "0"){
+                        liUl += '<li class="dsh dtj">' +
+                            '<div class="border">待提交</div>'
+                    }
+                    if (status == "1"){
+                        liUl += '<li class="dsh">' +
+                            '<div class="border">待审核</div>'
+                    }
+                    liUl +='<div class="listText"><span><em>出险人：</em>'+val.name+'</span><span><em>创建日期：</em>'+val.createTime+'</span></div>'
+                    if(status == "0"){
+                        liUl +=  '<a href="applyUpdata.html?id='+val.id+'">详情</a>'
+                    }
+                    if (status == "1"){
+                        liUl +=  '<a href="beAudited.html?id='+val.id+'">详情</a>'
+                    }
+                    liUl += '</li>';
+                })
+                $("#listClaims").append(liUl)
+            },
+            error:function () {
+                mui.toast("请求超时，检查网络！")
+            }
+        })
+    })
+    mui('.applyBtn').on('tap','#makeSure' ,function(event) {
+        window.location.href= 'apply.html'
+    })
+</script>
+</body>
+</html>
